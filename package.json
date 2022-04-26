@@ -19,5 +19,8 @@
     "@serverless-stack/resources": "0.69.7",
     "aws-cdk-lib": "2.15.0",
     "stripe": "^8.219.0"
+  },
+  "devDependencies": {
+    "@serverless-stack/static-site-env": "^0.69.7"
   }
 }

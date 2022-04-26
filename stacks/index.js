@@ -1,6 +1,7 @@
 import StorageStack from "./StorageStack";
 import ApiStack from "./ApiStack";
 import AuthStack from "./AuthStack";
+import FrontendStack from "./FrontendStack";
 
 export default function main(app){
 
@@ -14,8 +15,15 @@ export default function main(app){
     table: storageStack.table
   });
 
-  new AuthStack(app, "authmp", {
+  const authStack = new AuthStack(app, "authmp", {
     api: apiStack.api,
     bucket: storageStack.bucket
   });
+
+  new FrontendStack(app, "frontend", {
+    api: apiStack.api,
+    auth: authStack.auth,
+    bucket: storageStack.bucket
+  });
+
 }
